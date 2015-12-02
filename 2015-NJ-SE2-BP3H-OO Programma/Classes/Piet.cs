@@ -13,9 +13,16 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma.Classes
 
         public Piet()
         {
-            if (IsCreatief && KanRijmen || IsCreatief && SnaptComputer || KanRijmen && SnaptComputer)
+            try
             {
-                throw new OngeldigePietException("De piet kan teveel dingen!");
+                if (IsCreatief && KanRijmen || IsCreatief && SnaptComputer || KanRijmen && SnaptComputer)
+                {
+                    throw new OngeldigePietException("De piet kan teveel dingen!");
+                }
+            }
+            catch (OngeldigePietException e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
             }
         }
 
