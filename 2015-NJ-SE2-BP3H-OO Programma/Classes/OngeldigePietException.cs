@@ -5,7 +5,12 @@ using System.Text;
 
 namespace _2015_NJ_SE2_BP3H_OO_Programma.Classes
 {
-    class OngeldigePietException
+    public class OngeldigePietException : Exception
     {
+        public OngeldigePietException(string foutmelding)
+            : base(foutmelding)
+        {
+
+        }
     }
 }

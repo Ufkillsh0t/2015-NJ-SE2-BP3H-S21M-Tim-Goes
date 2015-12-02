@@ -79,6 +79,7 @@
             this.lbProvincies.Name = "lbProvincies";
             this.lbProvincies.Size = new System.Drawing.Size(260, 160);
             this.lbProvincies.TabIndex = 1;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnToevoegen);
@@ -387,7 +388,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "PietenPlanner 3000 SwagDeLuxe - Powered by Student Naam";
+            this.Text = "PietenPlanner 3000 SwagDeLuxe - Powered by Tim Goes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantalKinderen)).EndInit();

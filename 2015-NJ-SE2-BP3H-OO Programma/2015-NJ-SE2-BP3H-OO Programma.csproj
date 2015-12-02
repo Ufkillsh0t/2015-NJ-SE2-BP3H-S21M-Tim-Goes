@@ -50,9 +50,12 @@
     <Compile Include="Classes\Administratie.cs" />
     <Compile Include="Classes\CadeauType.cs" />
     <Compile Include="Classes\Gemeente.cs" />
+    <Compile Include="Classes\KnutselPiet.cs" />
     <Compile Include="Classes\OngeldigePietException.cs" />
     <Compile Include="Classes\Piet.cs" />
     <Compile Include="Classes\Provincie.cs" />
+    <Compile Include="Classes\RijmPiet.cs" />
+    <Compile Include="Classes\TechnischePiet.cs" />
     <Compile Include="Classes\WegWijsPiet.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
