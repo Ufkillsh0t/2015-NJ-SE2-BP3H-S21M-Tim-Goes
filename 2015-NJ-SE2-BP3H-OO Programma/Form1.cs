@@ -20,7 +20,6 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma
         {
             InitializeComponent();
             admin = new Administratie();
-            admin.Importeer();
             cbProvincie.DataSource = admin.Provincies;
             lbProvincies.DataSource = admin.Provincies;
         }

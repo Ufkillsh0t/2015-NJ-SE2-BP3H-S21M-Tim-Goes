@@ -15,6 +15,7 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma.Classes
         public Administratie()
         {
             Provincies = new List<Provincie>();
+            Importeer();
         }
 
         /// <summary>
@@ -105,7 +106,7 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma.Classes
             List<Piet> posse = new List<Piet>();
             if (Thuisbasis != null)
             {
-                if (gemeente.AfstandTot(Thuisbasis) > 25)
+                if (gemeente.AfstandTot(Thuisbasis) > 2500) //gebruik 2500 als 25km anders zijn er te weinig waarden.
                 {
                     posse.Add(new WegWijsPiet());
                 }
