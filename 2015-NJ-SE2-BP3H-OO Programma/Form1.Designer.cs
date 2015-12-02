@@ -79,6 +79,7 @@
             this.lbProvincies.Name = "lbProvincies";
             this.lbProvincies.Size = new System.Drawing.Size(260, 160);
             this.lbProvincies.TabIndex = 1;
+            this.lbProvincies.SelectedIndexChanged += new System.EventHandler(this.lbProvincies_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -155,6 +156,7 @@
             this.cbProvincie.Name = "cbProvincie";
             this.cbProvincie.Size = new System.Drawing.Size(152, 21);
             this.cbProvincie.TabIndex = 3;
+            this.cbProvincie.SelectedIndexChanged += new System.EventHandler(this.cbProvincie_SelectedIndexChanged);
             // 
             // label4
             // 
