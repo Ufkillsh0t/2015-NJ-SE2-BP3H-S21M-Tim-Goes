@@ -71,6 +71,7 @@
             this.lbGemeenten.Name = "lbGemeenten";
             this.lbGemeenten.Size = new System.Drawing.Size(482, 184);
             this.lbGemeenten.TabIndex = 0;
+            this.lbGemeenten.SelectedIndexChanged += new System.EventHandler(this.lbGemeenten_SelectedIndexChanged);
             // 
             // lbProvincies
             // 
@@ -288,6 +289,7 @@
             this.btnMaakPosse.TabIndex = 8;
             this.btnMaakPosse.Text = "Stel posse samen";
             this.btnMaakPosse.UseVisualStyleBackColor = true;
+            this.btnMaakPosse.Click += new System.EventHandler(this.btnMaakPosse_Click);
             // 
             // lbPosse
             // 

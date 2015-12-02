@@ -50,8 +50,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="PietPosseSamenTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\2015-NJ-SE2-BP3H-OO Programma\2015-NJ-SE2-BP3H-OO Programma.csproj">
+      <Project>{d7feeb08-5e23-427b-8ac8-ae77c5bf1333}</Project>
+      <Name>2015-NJ-SE2-BP3H-OO Programma</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

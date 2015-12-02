@@ -56,5 +56,39 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma
                 LaatGemeentesZienOpProvincie(); //listbox updaten....
             }
         }
+
+        private void lbGemeenten_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbGemeenten.SelectedItem != null)
+            {
+                Gemeente g = (Gemeente)lbGemeenten.SelectedItem;
+                lblAfstand.Text = admin.Thuisbasis.AfstandTot(g).ToString();
+            }
+        }
+
+        private void btnMaakPosse_Click(object sender, EventArgs e)
+        {
+            if(lbGemeenten.SelectedItem != null){
+            List<CadeauType> cadeauTypes = new List<CadeauType>();
+            if (chkDigitaal.Checked)
+            {
+                cadeauTypes.Add(CadeauType.Digitaal);
+            }
+            if (chkEducatief.Checked)
+            {
+                cadeauTypes.Add(CadeauType.Educatief);
+            }
+            if (chkGedicht.Checked)
+            {
+                cadeauTypes.Add(CadeauType.Gedicht);
+            }
+            if (chkSpeelgoed.Checked)
+            {
+                cadeauTypes.Add(CadeauType.Speelgoed);
+            }
+
+            lbPosse.DataSource = admin.StelPosseSamen((Gemeente)lbGemeenten.SelectedItem, cadeauTypes);
+            }
+        }
     }
 }

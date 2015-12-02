@@ -26,9 +26,9 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma.Classes
             }
         }
 
-        public virtual string ToString()
+        public override string ToString()
         {
-            return "Creatief: " + IsCreatief.ToString() + "KanRijmen: " + KanRijmen.ToString() + "SnapComputers: " + SnaptComputer.ToString();
+            return "Creatief: " + IsCreatief.ToString() + " KanRijmen: " + KanRijmen.ToString() + " SnapComputers: " + SnaptComputer.ToString();
         }
     }
 }
