@@ -35,6 +35,7 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma.Classes
                     }
                 }
             }
+            Provincies = Provincies.OrderBy(x => x.Naam).ToList(); //Sorteerd de provincies op basis van naam.
         }
 
         /// <summary>
@@ -47,17 +48,7 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma.Classes
         /// <param name="y"></param>
         public void VoegToe(string gemeente, string provincie, int aantalKinderen, int x, int y)
         {
-            Provincie prov = null;
-            foreach (Provincie p in Provincies) //Doorloopt alle provincies om te kijken of de gegeven provincie al bestaat.
-            {
-                if (p != null)
-                {
-                    if (p.Naam == provincie)
-                    {
-                        prov = p;
-                    }
-                }
-            }
+            Provincie prov = ZoekOpNaam(provincie);
 
             if (prov != null) //Indien er een provincie is gevonden voeg daar dan een nieuwe gemeente aan toe.
             {
@@ -67,27 +58,98 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma.Classes
                     Thuisbasis = g;
                 }
                 prov.VoegGemeenteToe(g);
+                prov.Gemeentes.Sort(); //Sorteert de gemeentes in de lijst van provincies op basis van kinderen.
             }
             else //Maak zowel een nieuwe provincie als gemeente aan.
             {
-                 prov = new Provincie(provincie);
-                 Gemeente g = new Gemeente(gemeente, prov, aantalKinderen, x, y);
-                 if (g.Naam == "Meppel")
-                 {
-                     Thuisbasis = g;
-                 }
-                 prov.VoegGemeenteToe(g);
-                 Provincies.Add(prov);
+                prov = new Provincie(provincie);
+                Gemeente g = new Gemeente(gemeente, prov, aantalKinderen, x, y);
+                if (g.Naam == "Meppel")
+                {
+                    Thuisbasis = g;
+                }
+                prov.VoegGemeenteToe(g);
+                Provincies.Add(prov);
             }
 
         }
 
+        /// <summary>
+        /// Zoekt een provincie in de lijst met provincies op basis van naam.
+        /// </summary>
+        /// <param name="naam"></param>
+        /// <returns></returns>
         public Provincie ZoekOpNaam(string naam)
         {
+            foreach (Provincie p in Provincies)
+            {
+                if (p != null)
+                {
+                    if (p.Naam == naam)
+                    {
+                        return p;
+                    }
+                }
+            }
             return null;
         }
 
-        public string FileName()
+        /// <summary>
+        /// Stelt een posse van pieten samen.
+        /// </summary>
+        /// <param name="gemeente"></param>
+        /// <param name="cadeauTypes"></param>
+        /// <returns></returns>
+        public List<Piet> StelPosseSamen(Gemeente gemeente, List<CadeauType> cadeauTypes)
+        {
+            List<Piet> posse = new List<Piet>();
+            if (Thuisbasis != null)
+            {
+                if (gemeente.AfstandTot(Thuisbasis) > 25)
+                {
+                    posse.Add(new WegWijsPiet());
+                }
+            }
+
+            if (cadeauTypes.Contains(CadeauType.Gedicht))
+            {
+                posse.Add(new RijmPiet());
+            }
+
+            if (cadeauTypes.Contains(CadeauType.Digitaal))
+            {
+                posse.Add(new TechnischePiet());
+            }
+
+            if (cadeauTypes.Contains(CadeauType.Speelgoed))
+            {
+                posse.Add(new KnutselPiet());
+            }
+
+            if (cadeauTypes.Contains(CadeauType.Educatief))
+            {
+                posse.Add(new TechnischePiet());
+                posse.Add(new KnutselPiet());
+            }
+
+            if (gemeente.AantalKinderen > 10000)
+            {
+                foreach (Piet p in posse.ToList())
+                {
+                    if (!(p is WegWijsPiet))
+                    {
+                        posse.Add(p);
+                    }
+                }
+            }
+            return posse;
+        }
+
+        /// <summary>
+        /// Verkrijgt het bestand wat geïmporteerd moet worden.
+        /// </summary>
+        /// <returns></returns>
+        private string FileName()
         {
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
             ofd.Filter = ".csv file|*.csv";

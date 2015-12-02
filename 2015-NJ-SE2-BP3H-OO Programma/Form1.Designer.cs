@@ -110,6 +110,7 @@
             this.btnToevoegen.TabIndex = 9;
             this.btnToevoegen.Text = "Toevoegen";
             this.btnToevoegen.UseVisualStyleBackColor = true;
+            this.btnToevoegen.Click += new System.EventHandler(this.btnToevoegen_Click);
             // 
             // nudAantalKinderen
             // 

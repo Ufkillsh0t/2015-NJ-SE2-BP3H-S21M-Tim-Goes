@@ -32,6 +32,11 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma
 
         private void lbProvincies_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LaatGemeentesZienOpProvincie();
+        }
+
+        private void LaatGemeentesZienOpProvincie()
+        {
             if (lbProvincies.SelectedItem != null)
             {
                 Provincie p = (Provincie)lbProvincies.SelectedItem;
@@ -39,6 +44,16 @@ namespace _2015_NJ_SE2_BP3H_OO_Programma
                 {
                     lbGemeenten.DataSource = p.Gemeentes;
                 }
+            }
+        }
+
+        private void btnToevoegen_Click(object sender, EventArgs e)
+        {
+            if (cbProvincie.SelectedItem != null)
+            {
+                Provincie p = (Provincie)cbProvincie.SelectedItem;
+                p.VoegGemeenteToe(new Gemeente(tbGemeente.Text, p, Convert.ToInt32(nudAantalKinderen.Value), Convert.ToInt32(nudX.Value), Convert.ToInt32(nudY.Value)));
+                LaatGemeentesZienOpProvincie(); //listbox updaten....
             }
         }
     }
